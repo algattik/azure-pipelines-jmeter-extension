@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "jmeter-tasks",
   "name": "JMeter",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "AlexandreGattiker",
   "targets": [
     {
@@ -10,6 +10,7 @@
     }
   ],
   "description": "Install and run JMeter and Taurus testing tools.",
+  "public": true,
   "categories": [
     "Azure Pipelines"
   ],
