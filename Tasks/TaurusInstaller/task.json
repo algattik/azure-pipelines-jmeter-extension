@@ -1,0 +1,49 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "c9365035-2aaa-4989-b636-9be49ed91bb2",
+  "name": "TaurusInstaller",
+  "friendlyName": "Taurus tool installer",
+  "description": "Install Taurus (JMeter runner)",
+  "author": "Alexandre Gattiker",
+  "helpMarkDown": "[Learn more about this task](https://aka.ms/custom-jmeter-tasks)",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Install Taurus $(taurusVersion)",
+  "inputs": [
+    {
+      "name": "taurusVersion",
+      "type": "string",
+      "label": "Version",
+      "defaultValue": "1.14.1",
+      "required": true,
+      "helpMarkDown": "The version of Taurus which should be installed on the agent if not already present"
+    },
+    {
+      "name": "pythonCommand",
+      "type": "string",
+      "label": "Python executable",
+      "defaultValue": "python3",
+      "required": true,
+      "helpMarkDown": "The Python 3.6+ executable to run pip install"
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "src/index.js"
+    }
+  },
+  "messages": {
+    "VerifyTaurusInstallation": "Verifying Taurus installation...",
+    "InputVersionNotValidVersion": "Input version %s is not a valid version",
+    "TaurusInstallFailed": "Failed to install Taurus."
+  }
+}

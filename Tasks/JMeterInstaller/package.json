@@ -1,0 +1,21 @@
+{
+  "name": "jmetertask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^6.0.101",
+    "@types/q": "^1.5.0",
+    "azure-pipelines-task-lib": "2.9.3",
+    "azure-pipelines-tool-lib": "0.11.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^7.0.2",
+    "sync-request": "^6.1.0"
+  }
+}

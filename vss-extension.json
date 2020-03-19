@@ -1,0 +1,101 @@
+{
+  "manifestVersion": 1,
+  "id": "jmeter-tasks",
+  "name": "JMeter",
+  "version": "0.0.1",
+  "publisher": "AlexandreGattiker",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Install and run JMeter and Taurus testing tools.",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "Tags": [
+    "JMeter",
+    "Azure",
+    "Performance",
+    "Load",
+    "Integration",
+    "Test",
+    "Testing",
+    "Release",
+    "DevOps"
+  ],
+  "branding": {
+    "color": "#FFFFFF",
+    "theme": "light"
+  },
+  "icons": {
+    "default": "images/icon.png"
+  },
+  "screenshots": [
+    {
+      "path": "images/screenshot-jmeter.png"
+    },
+    {
+      "path": "images/screenshot-pipeline.png"
+    },
+    {
+      "path": "images/screenshot-runner.png"
+    }
+  ],
+  "content": {
+    "details": {
+      "path": "overview.md"
+    }
+  },
+  "files": [
+    {
+      "path": "Tasks/JMeterInstaller"
+    },
+    {
+      "path": "Tasks/TaurusInstaller"
+    },
+    {
+      "path": "Tasks/TaurusRunner"
+    },
+    {
+      "path": "images",
+      "addressable": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/algattik/azure-pipelines-jmeter-extension"
+  },
+  "contributions": [
+    {
+      "id": "custom-jmeter-installer-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/JMeterInstaller"
+      }
+    },
+    {
+      "id": "custom-taurus-installer-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/TaurusInstaller"
+      }
+    },
+    {
+      "id": "custom-taurus-runner-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Tasks/TaurusRunner"
+      }
+    }
+  ]
+}

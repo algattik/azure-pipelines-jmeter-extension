@@ -1,0 +1,5 @@
+node_modules/
+*vsix
+*.js
+.taskkey
+task.json.tmp

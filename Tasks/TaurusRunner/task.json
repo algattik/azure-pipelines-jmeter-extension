@@ -1,0 +1,88 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "8b05c43b-e07e-43e1-8cfd-fa60802a18a9",
+  "name": "TaurusRunner",
+  "friendlyName": "Taurus tool runner",
+  "description": "Run Taurus (JMeter)",
+  "author": "Alexandre Gattiker",
+  "helpMarkDown": "[Learn more about this task](https://aka.ms/custom-jmeter-tasks)",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Run Taurus",
+  "inputs": [
+    {
+      "name": "taurusConfig",
+      "type": "multiLine",
+      "label": "Taurus Configuration YAML",
+      "defaultValue": "execution:\n- scenario:\n    requests:\n    - https://www.bing.com\n    # You can also reference a JMeter test plan (recommended)\n    # script: website-test.jmx\n  concurrency: 5\n  iterations: 10\n  ramp-up: 2s\n\nreporting:\n- module: junit-xml\n  filename: taurus-output/TEST-Taurus.xml",
+      "required": false,
+      "helpMarkDown": "Optional [Taurus YAML](https://gettaurus.org/docs/YAMLTutorial/) configuration file. You can also provide a path to a file in the *Taurus Arguments* field."
+    },
+    {
+      "name": "taurusArguments",
+      "type": "string",
+      "label": "Taurus Arguments",
+      "required": false,
+      "helpMarkDown": "[Taurus command-line arguments](https://gettaurus.org/docs/CommandLine/): files or websites to test, can be the paths to one or more Taurus YAML definition files, JMeter files or website URLs. You can also provide configuration settings."
+    },
+    {
+      "name": "jmeterHome",
+      "type": "string",
+      "label": "JMeter Home",
+      "defaultValue": "$(JMeterInstaller.JMeterHome)",
+      "required": true,
+      "helpMarkDown": "The directory in which JMeter is installed. Use `$(JMeterInstaller.JMeterHome)` to reference the output of the JMeter tool installer task."
+    },
+    {
+      "name": "jmeterPath",
+      "type": "string",
+      "label": "JMeter Path",
+      "defaultValue": "$(JMeterInstaller.JMeterPath)",
+      "required": true,
+      "helpMarkDown": "The location in which the JMeter executable is installed. Use `$(JMeterInstaller.JMeterPath)` to reference the output of the JMeter tool installer task."
+    },
+    {
+      "name": "jmeterVersion",
+      "type": "string",
+      "label": "JMeter Version",
+      "defaultValue": "$(JMeterInstaller.JMeterVersion)",
+      "required": true,
+      "helpMarkDown": "The installed JMeter version. Use `$(JMeterInstaller.JMeterVersion)` to reference the output of the JMeter tool installer task."
+    },
+    {
+      "name": "outputDir",
+      "type": "string",
+      "label": "Artifacts output directory",
+      "defaultValue": "taurus-output",
+      "required": true,
+      "helpMarkDown": "The Taurus and JMeter output directory. Will contain a `report` directory with an HTML report, and a `TEST-Taurus.xml` file with a report in JUnit format."
+    },
+    {
+      "name": "uploadReport",
+      "type": "boolean",
+      "label": "Upload report",
+      "defaultValue": true,
+      "required": true,
+      "helpMarkDown": "Whether to upload JMeter report to the build logs."
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "src/index.js"
+    }
+  },
+  "messages": {
+    "MustProvideConfigOrArgs": "You must provide either a Taurus configuration YAML, or a path to a Taurus YAML / JMeter JMX file.",
+    "TaurusRunFailed": "Taurus run failed.",
+    "JMeterReportGenerationRunFailed": "JMeter report generation failed."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "850ff244-e115-4a23-915d-633d7d08723a",
+  "name": "JMeterInstaller",
+  "friendlyName": "JMeter tool installer",
+  "description": "Find in cache or download a specific version of JMeter and prepend it to the PATH",
+  "author": "Alexandre Gattiker",
+  "helpMarkDown": "[Learn more about this task](https://aka.ms/custom-jmeter-tasks)",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Install JMeter $(jmeterVersion)",
+  "inputs": [
+    {
+      "name": "jmeterVersion",
+      "type": "string",
+      "label": "Version",
+      "defaultValue": "5.2.1",
+      "required": true,
+      "helpMarkDown": "The version of JMeter which should be installed on the agent if not already present"
+    },
+    {
+      "name": "plugins",
+      "type": "string",
+      "label": "Plugins",
+      "defaultValue": "jpgc-casutg,jpgc-dummy,jpgc-ffw,jpgc-fifo,jpgc-functions,jpgc-json,jpgc-perfmon,jpgc-prmctl,jpgc-tst",
+      "required": false,
+      "helpMarkDown": "Optional list of JMeter plugins to install, e.g. `jpgc-fifo,jpgc-json=2.2`"
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "src/index.js"
+    }
+  },
+  "messages": {
+    "VerifyJMeterInstallation": "Verifying JMeter installation...",
+    "InputVersionNotValidVersion": "Input version %s is not a valid version",
+    "JMeterNotFoundInFolder": "JMeter executable not found in path %s",
+    "JMeterDownloadFailed": "Failed to download JMeter from url %s. Error %s",
+    "JMeterUtilityDownloadFailed": "Failed to download JMeter utility from url %s. Error %s",
+    "JMeterPluginManagerInstallFailed": "Failed to install JMeter plugin manager. Error %s",
+    "JMeterPluginInstallFailed": "Failed to install JMeter plugins. Error %s"
+  },
+  "OutputVariables": [
+    {
+      "name": "JMeterHome",
+      "description": "The directory in which JMeter is installed."
+    },
+    {
+      "name": "JMeterPath",
+      "description": "The path to the JMeter executable."
+    },
+    {
+      "name": "JMeterVersion",
+      "description": "The JMeter version."
+    }
+  ]
+}
