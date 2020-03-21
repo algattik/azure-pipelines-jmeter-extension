@@ -59,11 +59,26 @@ export async function generateJMeterReport(jmeterPath: string, outputDir: string
     return reportDir;
 }
 
-export async function uploadJMeterReport(reportDir: string) {
+export async function uploadJMeterReport(reportDir: string, reportName: string) {
+
+    // sanitize file name
+    let reportFileName = reportName.replace(/[\/\?<>\\:\*\|":\x00-\x1f\x80-\x9f]/g, "_");
+
     let tempDir = createTempDir();
-    const zipFile = path.join(tempDir, `JMeter-Report.zip`);
+    const zipFile = path.join(tempDir, `${reportFileName}.zip`);
     zipper.sync.zip(reportDir).compress().save(zipFile);
-    tasks.uploadFile(zipFile);
+
+    let hostType = tasks.getVariable("SYSTEM_HOSTTYPE") || '';
+    if (hostType.toLowerCase() === "build") {
+        let data = {
+            artifactname: "Taurus Test Reports",
+            containerfolder: "Taurus Test Reports",
+        }
+        tasks.command("artifact.upload", data, zipFile);
+    }
+    else {
+        tasks.uploadFile(zipFile);
+    }
 }
 
 function createTempDir(): string {

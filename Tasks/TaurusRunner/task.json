@@ -15,7 +15,7 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 1584632945
+    "Patch": 1584799000
   },
   "instanceNameFormat": "Run Taurus",
   "inputs": [
@@ -67,12 +67,11 @@
       "helpMarkDown": "The Taurus and JMeter output directory. Will contain a `report` directory with an HTML report, and a `TEST-Taurus.xml` file with a report in JUnit format."
     },
     {
-      "name": "uploadReport",
-      "type": "boolean",
-      "label": "Upload report",
-      "defaultValue": true,
-      "required": true,
-      "helpMarkDown": "Whether to upload JMeter report to the build logs."
+      "name": "reportName",
+      "type": "string",
+      "label": "Report name",
+      "defaultValue": "Taurus Report",
+      "helpMarkDown": "Name of the uploaded HTML report in build artifact (or build logs in a release pipeline). Set to empty not to generate a report."
     }
   ],
   "execution": {

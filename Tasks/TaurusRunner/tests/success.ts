@@ -16,7 +16,6 @@ tmr.setInput('jmeterHome', jmeterHome);
 tmr.setInput('jmeterPath', jmeterPath);
 tmr.setInput('jmeterVersion', jmeterVersion);
 tmr.setInput('outputDir', outputDir);
-tmr.setInput('uploadReport', 'false');
 
 // Provide answers for task mock.
 const mockAnswers: ma.TaskLibAnswers = {

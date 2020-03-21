@@ -1,7 +1,7 @@
 ## About JMeter
 
 Apache [JMeter](https://www.jmeter.io/)
-is a highly versatible open-source highly versatile integration testing tool. It is often used as a load testing tool for web applications, but can also be used for functional testing and for testing other types of services, such as databases.
+is a highly versatile open-source integration testing tool. It is often used as a load testing tool for web applications, but can also be used for functional testing and for testing other types of services, such as databases.
 
 ## About Taurus
 

@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "jmeter-tasks",
   "name": "JMeter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "AlexandreGattiker",
   "targets": [
     {

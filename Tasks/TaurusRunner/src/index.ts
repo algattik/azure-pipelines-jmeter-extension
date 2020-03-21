@@ -9,13 +9,13 @@ async function runTaurus() {
     let jmeterPath = tasks.getInput("jmeterPath", true) ?? '';
     let jmeterVersion = tasks.getInput("jmeterVersion", true) ?? '';
     let outputDir = tasks.getInput("outputDir", true) ?? '';
-    let uploadReport = tasks.getBoolInput("uploadReport", true) ?? '';
+    let reportName = tasks.getInput("reportName", false) ?? '';
 
     let taurusArgs = await runner.buildTaurusArgs(taurusConfig, taurusArguments);
-    await runner.runTaurusTool( taurusArgs, jmeterHome, jmeterVersion, outputDir);
+    await runner.runTaurusTool(taurusArgs, jmeterHome, jmeterVersion, outputDir);
     let reportDir = await runner.generateJMeterReport(jmeterPath, outputDir);
-    if (uploadReport) {
-        await runner.uploadJMeterReport(reportDir);
+    if (reportName.trim()) {
+        await runner.uploadJMeterReport(reportDir, reportName);
     }
 }
 
