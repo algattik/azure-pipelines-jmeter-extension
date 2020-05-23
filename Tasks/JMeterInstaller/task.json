@@ -15,7 +15,7 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 1584799000
+    "Patch": 1590220127
   },
   "instanceNameFormat": "Install JMeter $(jmeterVersion)",
   "inputs": [

@@ -79,7 +79,9 @@ This extension is intended to run on **Windows**, **Linux** and **MacOS** agents
 
 * The **Artifacts output directory** will contain a `report` directory with an HTML report.
 
-* Check the **Upload report** checkbox so that the JMeter report is automatically archived within the build logs.
+* Enter a value in the **Report name** field to generate an HTML report. The report will be available as a build artifact in a build pipeline, or in the build logs in a release pipeline:
+
+    ![Build pipeline artifact](images/pipeline-artifacts.png)
 
 ![Using Taurus tool runner task](images/Taurus_tool_runner_inputs.png)
 
