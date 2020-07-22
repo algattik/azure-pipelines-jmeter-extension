@@ -4,6 +4,7 @@ import tools = require('azure-pipelines-tool-lib/tool');
 import path = require('path');
 import os = require('os');
 import crypto = require('crypto');
+import semver = require('semver');
 
 
 const jmeterToolName = "jmeter";
@@ -13,14 +14,16 @@ const pluginmgrUrl = "http://search.maven.org/remotecontent?filepath=kg/apc/jmet
 
 
 export async function downloadJMeter(version: string, plugins?: string): Promise<string> {
-    if (!/^(\d[\w.]*)$/.test(version)) {
+
+    let semVersion = semver.coerce(version);
+    if (semVersion === null) {
         throw new Error(tasks.loc("InputVersionNotValidVersion", version));
     }
-
+    let semVersionString = semver.valid(semVersion)!;
     let hasPlugins = plugins ? plugins.length : false;
     let fullToolName = hasPlugins && plugins ? `${jmeterToolName}-${sha1(plugins?.trim())}` : jmeterToolName;
 
-    let cachedToolPath = tools.findLocalTool(fullToolName, version);
+    let cachedToolPath = tools.findLocalTool(fullToolName, semVersionString);
     if (!cachedToolPath) {
         let jmeterDownloadUrl = getJMeterDownloadUrl(version);
         let jmeterDownloadPath;
@@ -42,7 +45,7 @@ export async function downloadJMeter(version: string, plugins?: string): Promise
             await installPlugins(jmeterDir, plugins);
         }
 
-        cachedToolPath = await tools.cacheDir(jmeterUnzippedPath, fullToolName, version);
+        cachedToolPath = await tools.cacheDir(jmeterUnzippedPath, fullToolName, semVersionString);
     }
 
     let jmeterPath = findJMeterExecutable(cachedToolPath);

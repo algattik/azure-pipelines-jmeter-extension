@@ -3,6 +3,7 @@ import tmrm = require('azure-pipelines-task-lib/mock-run');
 import path = require('path');
 
 const userRequestedVersion = "5.1";
+const userRequestedSemVersion = "5.1.0";
 const expectedDownloadUrl =
     `https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${userRequestedVersion}.zip`;
 const cmdrunnerUrl = "http://search.maven.org/remotecontent?filepath=kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar";
@@ -23,7 +24,7 @@ tmr.registerMock("azure-pipelines-tool-lib/tool", {
         if (toolName !== `jmeter-${pluginsSHA1}`) {
             throw new Error(`Unexpected toolName ${toolName}.`);
         }
-        if (versionSpec !== userRequestedVersion) {
+        if (versionSpec !== userRequestedSemVersion) {
             throw new Error(`Unexpected versionSpec ${versionSpec}.`);
         }
         return undefined;
@@ -57,7 +58,7 @@ tmr.registerMock("azure-pipelines-tool-lib/tool", {
         if (tool !== `jmeter-${pluginsSHA1}`) {
             throw new Error(`Unexpected tool ${tool}.`);
         }
-        if (version !== userRequestedVersion) {
+        if (version !== userRequestedSemVersion) {
             throw new Error(`Unexpected version ${version}.`);
         }
         if (arch !== undefined) {
