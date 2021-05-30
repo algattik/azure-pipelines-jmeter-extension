@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "d9365035-2aaa-4989-b636-9be49ed91bb2",
+  "id": "c9365035-2aaa-4989-b636-9be49ed91bb2",
   "name": "TaurusInstaller",
   "friendlyName": "Taurus tool installer",
   "description": "Install Taurus (JMeter runner)",

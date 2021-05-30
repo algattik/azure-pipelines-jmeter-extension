@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "950ff244-e115-4a23-915d-633d7d08723a",
+  "id": "850ff244-e115-4a23-915d-633d7d08723a",
   "name": "JMeterInstaller",
   "friendlyName": "JMeter tool installer",
   "description": "Find in cache or download a specific version of JMeter and prepend it to the PATH",
