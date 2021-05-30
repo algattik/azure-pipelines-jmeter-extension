@@ -6,8 +6,8 @@ const userRequestedVersion = "5.1";
 const userRequestedSemVersion = "5.1.0";
 const expectedDownloadUrl =
     `https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${userRequestedVersion}.zip`;
-const cmdrunnerUrl = "http://search.maven.org/remotecontent?filepath=kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar";
-const pluginmgrUrl = "http://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.3/jmeter-plugins-manager-1.3.jar";
+const cmdrunnerUrl = "https://search.maven.org/remotecontent?filepath=kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar";
+const pluginmgrUrl = "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.3/jmeter-plugins-manager-1.3.jar";
 const fakeDownloadedPath = "/fake/path/to/downloaded/file";
 
 let taskPath = path.join(__dirname, '..', 'src', 'index.js');

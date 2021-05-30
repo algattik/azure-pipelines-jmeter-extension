@@ -13,8 +13,9 @@ async function runTaurus() {
 
     let taurusArgs = await runner.buildTaurusArgs(taurusConfig, taurusArguments);
     await runner.runTaurusTool(taurusArgs, jmeterHome, jmeterVersion, outputDir);
-    let reportDir = await runner.generateJMeterReport(jmeterPath, outputDir);
+
     if (reportName.trim()) {
+        let reportDir = await runner.generateJMeterReport(jmeterPath, outputDir);
         await runner.uploadJMeterReport(reportDir, reportName);
     }
 }

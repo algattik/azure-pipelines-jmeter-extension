@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "c9365035-2aaa-4989-b636-9be49ed91bb2",
+  "id": "d9365035-2aaa-4989-b636-9be49ed91bb2",
   "name": "TaurusInstaller",
   "friendlyName": "Taurus tool installer",
   "description": "Install Taurus (JMeter runner)",
@@ -15,7 +15,7 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 1595439340
+    "Patch": 1622400774
   },
   "instanceNameFormat": "Install Taurus $(taurusVersion)",
   "inputs": [
@@ -23,7 +23,7 @@
       "name": "taurusVersion",
       "type": "string",
       "label": "Version",
-      "defaultValue": "1.14.1",
+      "defaultValue": "1.15.3",
       "required": true,
       "helpMarkDown": "The version of Taurus which should be installed on the agent if not already present"
     },

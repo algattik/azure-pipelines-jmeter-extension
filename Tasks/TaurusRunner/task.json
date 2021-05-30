@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "8b05c43b-e07e-43e1-8cfd-fa60802a18a9",
+  "id": "9b05c43b-e07e-43e1-8cfd-fa60802a18a9",
   "name": "TaurusRunner",
   "friendlyName": "Taurus tool runner",
   "description": "Run Taurus (JMeter)",
@@ -15,7 +15,7 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 1595439340
+    "Patch": 1622400774
   },
   "instanceNameFormat": "Run Taurus",
   "inputs": [

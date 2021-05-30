@@ -9,8 +9,8 @@ import semver = require('semver');
 
 const jmeterToolName = "jmeter";
 const isWindows = os.type().match(/^Win/);
-const cmdrunnerUrl = "http://search.maven.org/remotecontent?filepath=kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar";
-const pluginmgrUrl = "http://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.3/jmeter-plugins-manager-1.3.jar";
+const cmdrunnerUrl = "https://search.maven.org/remotecontent?filepath=kg/apc/cmdrunner/2.2/cmdrunner-2.2.jar";
+const pluginmgrUrl = "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.3/jmeter-plugins-manager-1.3.jar";
 
 
 export async function downloadJMeter(version: string, plugins?: string): Promise<string> {

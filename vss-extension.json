@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
-  "id": "jmeter-tasks",
-  "name": "JMeter",
-  "version": "0.0.10",
+  "id": "jmeter-tasks-dev",
+  "name": "JMeter-dev",
+  "version": "0.0.34",
   "publisher": "AlexandreGattiker",
   "targets": [
     {
@@ -46,6 +46,9 @@
   "content": {
     "details": {
       "path": "overview.md"
+    },
+    "license": {
+      "path": "LICENSE"
     }
   },
   "files": [

@@ -37,7 +37,7 @@ This extension is intended to run on **Windows**, **Linux** and **MacOS** agents
 
 ## Taurus tool installer task
 
-- Ensure you have Python 3.6+ installed. Search for **Use Python version** and click on **Add**
+- Ensure you have Python 3.6, 3.7 or 3.8 installed. Search for **Use Python version** and click on **Add**. Under `Version spec`, enter `3.8`. *Python 3.9 is [reported not to work](https://github.com/algattik/azure-pipelines-jmeter-extension/issues/8).*
 
 - Search for **Taurus tool installer** and click on **Add**
 
@@ -109,10 +109,9 @@ placeholder `${__P(INSTRUMENTATION_KEY)}`.
 * In your pipeline, in the **JMeter tool installer** task, under **plugins**, enter `jmeter.backendlistener.azure` in order to
 install the plugin on the build agent as well.
 
-* [Create an Azure Application Insights resource](https://docs.microsoft.com/en-us/azure/azure-monitor/app/create-new-resource) and copy the Instrumentation Key.
+* [Create an Azure Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) and copy the Instrumentation Key.
 
-* In your pipeline, configure the JMeter Installer task, the Taurus Installer task, and the Taurus Runner task. As argument to 
-the Taurus Runner task, enter:
+* In your pipeline, as argument to the Taurus Runner task, enter:
 
 ```
 -o modules.jmeter.properties.INSTRUMENTATION_KEY="<your key>" your-test-file.jmx

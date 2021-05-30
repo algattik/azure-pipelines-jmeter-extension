@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "850ff244-e115-4a23-915d-633d7d08723a",
+  "id": "950ff244-e115-4a23-915d-633d7d08723a",
   "name": "JMeterInstaller",
   "friendlyName": "JMeter tool installer",
   "description": "Find in cache or download a specific version of JMeter and prepend it to the PATH",
@@ -15,7 +15,7 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 1595439340
+    "Patch": 1622400774
   },
   "instanceNameFormat": "Install JMeter $(jmeterVersion)",
   "inputs": [
@@ -23,7 +23,7 @@
       "name": "jmeterVersion",
       "type": "string",
       "label": "Version",
-      "defaultValue": "5.2.1",
+      "defaultValue": "5.4.1",
       "required": true,
       "helpMarkDown": "The version of JMeter which should be installed on the agent if not already present"
     },
