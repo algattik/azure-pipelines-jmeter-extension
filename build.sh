@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Usage:
+#   export ADO_TOKEN=<ADO Token with Marketplace (Publish) scope>
+#   ./build.sh
+
 set -euxo pipefail
 
 newTaskVersion=$(date "+%s")

@@ -21,7 +21,7 @@ export async function downloadJMeter(version: string, plugins?: string): Promise
     }
     let semVersionString = semver.valid(semVersion)!;
     let hasPlugins = plugins ? plugins.length : false;
-    let fullToolName = hasPlugins && plugins ? `${jmeterToolName}-${sha1(plugins?.trim())}` : jmeterToolName;
+    let fullToolName = hasPlugins && plugins ? `${jmeterToolName}-${hash(plugins?.trim())}` : jmeterToolName;
 
     let cachedToolPath = tools.findLocalTool(fullToolName, semVersionString);
     if (!cachedToolPath) {
@@ -121,6 +121,6 @@ function getScriptExtension(): string {
 }
 
 
-function sha1(s: string): string {
-    return crypto.createHash('sha1').update(s).digest('hex');
+function hash(s: string): string {
+    return crypto.createHash('sha224').update(s).digest('hex');
 }
