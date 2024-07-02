@@ -37,7 +37,7 @@ This extension is intended to run on **Windows**, **Linux** and **MacOS** agents
 
 ## Taurus tool installer task
 
-- Ensure you have Python 3.6, 3.7 or 3.8 installed. Search for **Use Python version** and click on **Add**. Under `Version spec`, enter `3.8`. *Python 3.9 is [reported not to work](https://github.com/algattik/azure-pipelines-jmeter-extension/issues/8).*
+- Ensure you have Python 3.7, 3.8 or 3.9 installed. Search for **Use Python version** and click on **Add**. Under `Version spec`, enter `3.9`.
 
 - Search for **Taurus tool installer** and click on **Add**
 

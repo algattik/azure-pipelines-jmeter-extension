@@ -32,7 +32,13 @@ async function run() {
         await verifyJMeter();
         tasks.setResult(tasks.TaskResult.Succeeded, "");
     } catch (error) {
-        tasks.setResult(tasks.TaskResult.Failed, error);
+        let errorMessage: string;
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        } else {
+            errorMessage = String(error);
+        }
+        tasks.setResult(tasks.TaskResult.Failed, 'Error: ' + errorMessage);
     }
 }
 

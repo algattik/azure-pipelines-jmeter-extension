@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Usage:
+#   brew install typescript
+#   npm install -g tfx-cli mocha
 #   export ADO_TOKEN=<ADO Token with Marketplace (Publish) scope>
 #   ./build.sh
 
